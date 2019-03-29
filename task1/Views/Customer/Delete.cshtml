@@ -1,0 +1,49 @@
+﻿@model task1.Models.Customer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edite</title>
+</head>
+<body>
+    <div>
+
+        <center>
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <label>
+                        Name @Html.TextBoxFor(Model => Model.CusName, new { Type = "data", disabled = "disabled" })
+                    </label>
+                    <br />
+                    <label>
+                        Mobile @Html.TextBoxFor(Model => Model.CusMobile, new { Type = "data", disabled = "disabled" })
+                    </label>
+                    <br />
+
+                    <label>
+                        Gender  @Html.TextBoxFor(O => O.Gender.GenderType, null, new { disabled = "disabled" })
+                    </label>
+                    <br />
+                    <label>
+                        Employee   @Html.TextBoxFor(O => O.Employee.EmpName, null, new { disabled = "disabled" })
+                    </label>
+                    <br />
+                    <center>
+                        <input type="submit" value="Delet" class="btn" />
+                        
+                    </center>
+                </div>
+
+
+            }
+        </center>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<task1.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <center>
+        <h1>WElcome to admin panal</h1>
+        <h4>u can Add/Delete our employees</h4>
+    </center>
+   
+    <p>
+        @Html.ActionLink("Create New", "Create") &nbsp; <a href="~/Customer/Index">GO TO Cutomer panal</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passwrd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Confpasswrd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Passwrd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Confpasswrd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    
+
+</body>
+</html>

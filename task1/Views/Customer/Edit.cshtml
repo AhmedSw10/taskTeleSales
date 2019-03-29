@@ -1,0 +1,53 @@
+﻿@model task1.Models.Customer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edite</title>
+</head>
+<body>
+    <div>
+
+        <center>
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <label>
+                        Name @Html.TextBoxFor(Model => Model.CusName, new { Type = "data", @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.CusName, null)
+                    </label>
+                    <br />
+                    <label>
+                        Mobile @Html.TextBoxFor(Model => Model.CusMobile, new { Type = "data", @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.CusMobile, null)
+                    </label>
+                    <br />
+
+                    <label>
+                        Gender @Html.DropDownListFor(O => O.GenderId, (SelectList)ViewBag.GenderId, "choose Gender", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(o => o.GenderId, null)
+                    </label>
+                    <br />
+                    <label>
+                        Employee @Html.DropDownListFor(O => O.EmployeeId, (SelectList)ViewBag.EmployeeId, "choose Employee", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(o => o.EmployeeId, null)
+                    </label>
+                    <br />
+                    <center>
+                        <input type="submit" value="Edit" class="btn" />
+                        <input type="reset" value="clear" class="btn" />
+                    </center>
+                </div>
+
+
+            }
+        </center>
+
+    </div>
+</body>
+</html>

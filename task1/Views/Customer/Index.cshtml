@@ -1,0 +1,35 @@
+﻿@model List<task1.Models.Customer>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        
+        <center>
+
+            <h1>WElcome to Customer panal</h1>
+            <h4>u can Add/Delete only Customer</h4>
+            <h4><a href="~/Employees/Login">Go to admin panal</a></h4>
+            <h4><a href="/Customer/Create">Creat New Customer</a></h4>
+            <table border="1">
+                <tr><th>ID</th><th>Name</th><th>mobile</th><th>Gender</th><th>Employe</th> <th>EDIT</th> <th>DELET</th></tr>
+                @foreach (var item in Model)
+                {
+                    <tr><td>@item.Id</td><td>@item.CusName</td><td>@item.CusMobile</td><td> @Html.DisplayFor(modelItem => item.Gender.GenderType) </td><td>@item.Employee.EmpName</td> <td><a href="/Customer/Edit/@item.Id">EDIT</a></td> <td> <a href="/Customer/Delete/@item.Id">Delet</a></td></tr>
+                }
+
+            </table>
+        </center>
+    </div>
+
+    
+</body>
+</html>
